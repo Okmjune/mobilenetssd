@@ -26,7 +26,7 @@ UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
-lineaccesstoken  =  'XEO4PR1R7JWXKytex6uO7VNTsnbpq0B+UY3WfwFgPLq3ruSLFnOSmp/V6d3igvIllvqh51s3DSDDqmu0XfXSG9lguajI3xdEpdT1TeHe6EIYQ5k+CWW+ViHYoNscWDL3cJp+6lVoFbwmHI9pYwpBHgdB04t89/1O/w1cDnyilFU='
+lineaccesstoken  =wLKfegDk7u8JcI5AHIwVVjoVRNfBvX+Fr8C5+9yECNRyeEzITlj01wTQBw88DJj62+i1wF4wtkANXrjJw+AOKPqsALY9FqN3dcmlF9jjXAqQGEBE6spffBodU7/yzYmWWvmBak9Rq87PQtcWl23yTAdB04t89/1O/w1cDnyilFU=
 
 line_bot_api = LineBotApi(lineaccesstoken)
 
@@ -149,7 +149,12 @@ def event_handle(event):
 
     if msgType == "text":
         msg = str(event["message"]["text"])
-        replyObj = TextSendMessage(text=msg)
+        if msg == "สวัสดี" :
+             replyObj = TextSendMessage(text="สวัสดี")
+        elif msg == "ไปกินข้าวกัน" :
+             rplyObj = TextSendMessage(text="ไปดิ")
+        elif msg == "ไปกินที่ไหน" :
+             replyObj = TextSendMessage(text="แถวนี้แหละ") else :
         line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
